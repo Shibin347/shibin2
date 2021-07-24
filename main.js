@@ -249,6 +249,8 @@
 const validate={
   name:false,
   email:false,
+   subject:false,
+   message:false
 }
 
 function validatename(){
@@ -285,3 +287,6 @@ if(email==null || email==""){
   validate.email=false;
 }
 }
+
+
+

@@ -369,24 +369,24 @@
           <div class="resume-item">
             <h4>High Schools</h4>
             <h5>Till 2017</h5>
-            <p><em>Cyriac Chavara Memorial Higher Secondary School</em></p>
+            <p><em>I have completed my high schools from Cyriac Chavara Memorial Higher Secondary School</em></p>
           </div>
           <div class="resume-item">
             <h4>Higher Secondary</h4>
             <h5>2017-2019</h5>
-            <p><em>St'Peters Higher Secondary School, Kurumbanadom</em></p>
+            <p><em>I have completed my higher secondary from St'Peters Higher Secondary School, Kurumbanadom</em></p>
           </div>
 
           <div class="resume-item">
             <h4>Diploma in Automobile Technology</h4>
             <h5>2019-2020</h5>
-            <p><em>Amal Jyothi Collage of Engineering, Kanjirapally</em></p>
+            <p><em>I have completed my diploma from Amal Jyothi Collage of Engineering, Kanjirapally</em></p>
           </div>
 
           <div class="resume-item">
             <h4>Software Development</h4>
             <h5>2021</h5>
-            <p><em>SPS(School of Practical Studies)</em></p>
+            <p><em>Currently I'm studying in SPS(School of Practical Studies) about web Development and Mobile App Development</em></p>
           </div>
         </div>
         <div class="col-lg-6">
@@ -397,7 +397,7 @@
             <p><em>VE Commercial Vehicles </em></p>
             <p>
             <ul>
-              <li>I worked as a automobile technician in volvo eicher commercial vehicles.</li>
+              <li>I have worked as a automobile technician in volvo eicher commercial vehicles.</li>
             </ul>
             </p>
           </div>
@@ -407,7 +407,7 @@
             <p><em>Carnival Infopark, Kochi</em></p>
             <p>
             <ul>
-              <li>Studying Software Development from SPS.</li>
+              <li>Currently I'm studying Software Development from SPS.</li>
             
             </p>
           </div>
@@ -431,7 +431,7 @@
           <div class="icon-box">
             <div class="icon"></i></div>
            <h4>Web Designing</h4>
-           <p>I work as freelancer on designing and coding websites. Please contact me for more details</p>
+           <p>I work as freelancer on designing and coding websites. I can offer you my best with a affordable price . To know more feel free to contact me.</p>
           </div>
         </div>
 
@@ -439,7 +439,7 @@
           <div class="icon-box" >
             <div class="icon"><i class="bx bx-file"></i></div>
             <h4><a href="">Photoshop</a></h4>
-            <p>I work on editing and design images using photoshop. Please contact me for more details. </p>
+            <p>I work on editing and design images using photoshop. I can offer you my best with a affordable price . To know more feel free to contact me. </p>
           </div>
         </div>
 
@@ -447,7 +447,7 @@
           <div class="icon-box">
             <div class="icon"><i class="bx bx-tachometer"></i></div>
             <h4><a href="">App Develepment</a></h4>
-            <p>I develop application for every devices using Flutter. please contact me for more details.  </p>
+            <p>I develop application for every devices using Flutter. I can offer you my best with a affordable price . To know more feel free to contact me.  </p>
           </div>
         </div>
 
@@ -455,7 +455,7 @@
           <div class="icon-box">
             <div class="icon"><i class="bx bx-world"></i></div>
             <h4><a href="">Mentoring</a></h4>
-            <p>I can mentor for building a better skill in software development.please contact for more details. </p>
+            <p>I can mentor for building a better skill in software development. I can offer you my best with a affordable price . To know more feel free to contact me. </p>
           </div>
         </div>
 
@@ -513,6 +513,7 @@
               </div>
             </div>
           </div>
+
         </div>
 
         <div class="col-lg-4 col-md-6 portfolio-item filter-web">
@@ -657,19 +658,21 @@
       <form action="" method="post" role="form" id="clientform" class="php-email-form mt-4">
         <div class="row">
           <div class="col-md-6 form-group">
-            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required onkeyup="return validatename()">
+            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"  onkeyup="return validatename()">
             <p class="validate" id="name-Error"></p>
           </div>
           <div class="col-md-6 form-group mt-3 mt-md-0">
-            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required onkeyup="return validateemail()">
+            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email"  onkeyup="return validateemail()">
             <p class="validate" id="email-Error"></p>
           </div>
         </div>
         <div class="form-group mt-3">
-          <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+          <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" onkeyup="return validatesubject()">
+          <p class="validate" id="subject-Error"></p>
         </div>
         <div class="form-group mt-3">
-          <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+          <textarea class="form-control" name="message" id="message" placeholder="Message" onkeyup="return validatemessage()" ></textarea>
+          <p class="validate" id="message-Error"></p>
         </div>
         <div class="my-3">
           <div class="loading">Loading</div>
@@ -677,6 +680,7 @@
           <div class="sent-message">Your message has been sent. Thank you!</div>
         </div>
         <div class="text-center"><button type="submit">Send Message</button></div>
+        <p id="formresponse"></p>
       </form>
 
     </div>
@@ -695,26 +699,61 @@
   <!-- Template Main JS File -->
   <script src="Personal/assets/js/main.js"></script>
 
+<script>
+  function validatesubject(){
+  var subject=document.getElementById("subject").value
+  var subjectError=document.getElementById("subject-Error")
+  
+if(subject==null || subject==""){
+  validate.subject=false;
+  subjectError.innerHTML="*Field cannot be Empty*";
+}else{
+  subjectError.innerHTML="";
+  validate.subject=true;
+}
+}
+
+function validatemessage(){
+  var message=document.getElementById("message").value
+  var messageError=document.getElementById("message-Error")
+  
+if(message==null || message==""){
+  validate.message=false;
+  messageError.innerHTML="*Field cannot be Empty*";
+}else{
+  messageError.innerHTML="";
+  validate.message=true;
+}
+}
+</script>
+
   <script>
+    var formresponse=document.getElementById("formresponse");
+   
     $("#clientform").submit((e) => {
       e.preventDefault();
-      if(validate.name && validate.email){
+
+      if(validate.name && validate.email && validate.subject && validate.message){
       $.ajax({
         url: "https://script.google.com/macros/s/AKfycbxUVJcevrBPLsTLBJcJtMekqVg3DxQoJRVlEXVb/exec",
         data: $("#clientform").serialize(),
         method: "post",
         success: function (response) {
-          alert("Form submitted successfully");
-          window.location.reload();
+         // alert("Form submitted successfully");
+         formresponse.innerHTML="Form submitted successfully"
+        document.getElementById("clientform").reset();
+         
+
           //window.location.href="https://google.com"
         },
         error: function (err) {
-          alert("Something Error");
+         formresponse.innerHTML="Something Error"
         },
       });
     }
     else{
-        alert("please fill the form")
+      //  alert("please fill the form")
+       formresponse.innerHTML="Please fill the form";
     }
     });
     </script>
