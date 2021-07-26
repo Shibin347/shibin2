@@ -870,14 +870,20 @@ if(email==null || email==""){
     $("#clientform").submit((e) => {
       e.preventDefault();
 
-      if(validate.name && validate.email && validate.subject && validate.message && validate.mobile && validate.place){
+      if(validate.name && validate.email && validate.subject && validate.message && validate.mobile && validateplace){
       $.ajax({
         url: "https://script.google.com/macros/s/AKfycbxUVJcevrBPLsTLBJcJtMekqVg3DxQoJRVlEXVb/exec",
         data: $("#clientform").serialize(),
         method: "post",
         success: function (response) {
          // alert("Form submitted successfully");
-        
+         swal({
+  title: "Good job!",
+  text: "Your form is submitted!",
+  icon: "success",
+  button: "Aww yes!",
+});
+
         document.getElementById("clientform").reset();
          
 
