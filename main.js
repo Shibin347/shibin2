@@ -48,7 +48,7 @@
    * Mobile nav toggle
    */
   on('click', '.mobile-nav-toggle', function(e) {
-    select('#navbar').classList.toggle('navbar-mobile')
+    select('#navbar').classList.toggle('navbar')
     this.classList.toggle('bi-list')
     this.classList.toggle('bi-x')
   })
@@ -250,7 +250,9 @@ const validate={
   name:false,
   email:false,
    subject:false,
-   message:false
+   message:false,
+   mobile:false,
+   place:false
 }
 
 function validatename(){
@@ -288,5 +290,36 @@ if(email==null || email==""){
 }
 }
 
+function validatemobile(){
+  var mobile=document.getElementById("mobile").value
+  var mobileError=document.getElementById("mobile-Error")
+  var elementmobile=/^\d{10}$/
 
+if(mobile==null || mobile==""){
+  validate.mobile=false;
+  mobileError.innerHTML="*Field cannot be Empty*";
+}else if(mobile.match(elementmobile)){
+  mobileError.innerHTML="";
+  validate.mobile=true;
+}else{
+  mobileError.innerHTML="*Enter correct mobile number only*";
+  validate.mobile=false;
+}
+}
 
+function validateplace(){
+  var place=document.getElementById("place").value
+  var placeError=document.getElementById('place-Error')
+  var elementAlpa=/^[-a-zA-Z-()]+(\s+[-a-zA-Z-()]+)*$/
+
+if(place==null || place==""){
+  validate.place=false;
+  placeError.innerHTML="*Field cannot be Empty*";
+}else if(place.match(elementAlpa)){
+  placeError.innerHTML="";
+  validate.place=true;
+}else{
+  placeError.innerHTML="*Enter alphabet only*";
+  validate.place=false;
+}
+}
