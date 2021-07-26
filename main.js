@@ -262,12 +262,12 @@ function validatename(){
 
 if(name==null || name.length <1){
   validate.name=false;
-  nameError.innerHTML="*Field cannot be Empty*";
+  nameError.innerHTML="*FIELD CANNOT BE EMPTY*";
 }else if(name.match(elementAlp)){
   nameError.innerHTML="";
   validate.name=true;
 }else{
-  nameError.innerHTML="*Enter alphabet only*";
+  nameError.innerHTML="*ENTER ALPHABET ONLY*";
   validate.name=false;
 }
 
@@ -280,46 +280,13 @@ function validateemail(){
 
 if(email==null || email==""){
   validate.email=false;
-  emailError.innerHTML="*Field cannot be Empty*";
+  emailError.innerHTML="*FIELD CANNOT BE EMPTY*";
 }else if(email.match(elementemail)){
   emailError.innerHTML="";
   validate.email=true;
 }else{
-  emailError.innerHTML="*Enter correct email only*";
+  emailError.innerHTML="*ENTER CORRECT EMAIL*";
   validate.email=false;
 }
 }
 
-function validatemobile(){
-  var mobile=document.getElementById("mobile").value
-  var mobileError=document.getElementById("mobile-Error")
-  var elementmobile=/^\d{10}$/
-
-if(mobile==null || mobile==""){
-  validate.mobile=false;
-  mobileError.innerHTML="*Field cannot be Empty*";
-}else if(mobile.match(elementmobile)){
-  mobileError.innerHTML="";
-  validate.mobile=true;
-}else{
-  mobileError.innerHTML="*Enter correct mobile number only*";
-  validate.mobile=false;
-}
-}
-
-function validateplace(){
-  var place=document.getElementById("place").value
-  var placeError=document.getElementById('place-Error')
-  var elementAlpa=/^[-a-zA-Z-()]+(\s+[-a-zA-Z-()]+)*$/
-
-if(place==null || place==""){
-  validate.place=false;
-  placeError.innerHTML="*Field cannot be Empty*";
-}else if(place.match(elementAlpa)){
-  placeError.innerHTML="";
-  validate.place=true;
-}else{
-  placeError.innerHTML="*Enter alphabet only*";
-  validate.place=false;
-}
-}

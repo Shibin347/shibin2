@@ -1194,3 +1194,33 @@ span{
 .studyimg{
   width: 100%;
 }
+
+#name-Error{
+  color: #ed3c0d;
+  font-weight: 700;
+}
+
+#place-Error{
+  color: #ed3c0d;
+  font-weight: 700;
+}
+
+#email-Error{
+  color: #ed3c0d;
+  font-weight: 700;
+}
+
+#mobile-Error{
+  color: #ed3c0d;
+  font-weight: 700;
+}
+
+#subject-Error{
+  color: #ed3c0d;
+  font-weight: 700;
+}
+
+#message-Error{
+  color: #ed3c0d;
+  font-weight: 700;
+}

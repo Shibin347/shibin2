@@ -330,17 +330,7 @@
 
   
 
-        </div>
-        <div class="swiper-pagination"></div>
-      </div>
-
-      <div class="owl-carousel testimonials-carousel">
-
-      </div>
-
-    </div><!-- End Testimonials  -->
-
-  </section><!-- End About Section -->
+    
 
   <!-- ======= Resume Section ======= -->
   <section id="resume12" class="resume">
@@ -648,8 +638,28 @@
                 <h4>Django developer</h4>
               </div>
             </div><!-- End testimonial item -->
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                 Shibin is a hard working person. He is so work ethical and always does everything perfect.
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+                <img src="" class="testimonial-img" alt="">
+                <h3>Arjun </h3>
+                <h4>Node JS </h4>
+              </div>
+            </div><!-- End testimonial item -->
+          </div>
+          <div class="swiper-pagination"></div>
+          </div>
+          
+          <div class="owl-carousel testimonials-carousel">
+          
+          </div>
+          
+          </div><!-- End Testimonials  -->
   </section><!-- End Portfolio Section -->
-   
 
   <!-- ======= Contact Section ======= -->
   <section id="contact" class="contact">
@@ -703,7 +713,7 @@
       <form action="" method="post" role="form" id="clientform" class="php-email-form mt-4">
         <div class="row">
           <div class="col-md-6 form-group">
-            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"  onkeyup="return validatename()">
+            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"  onkeyup="return validatename()" onkeydown="return (/[a-z+\s]/i.test(event.key))">
             <p class="validate" id="name-Error"></p>
           </div>
           <div class="col-md-6 form-group mt-3 mt-md-0">
@@ -711,11 +721,11 @@
             <p class="validate" id="email-Error"></p>
           </div>
           <div class="col-md-6 form-group">
-            <input type="tel" name="mobile" class="form-control" id="mobile" placeholder="Mobile Number"  onkeyup="return validatemobile()">
+            <input type="tel" name="mobile" class="form-control" id="mobile" placeholder="Mobile Number"  onkeyup="return validatemobile()" oninput="this.value = this.value.replace(/\D/g,'')"/>
             <p class="validate" id="mobile-Error"></p>
           </div>
           <div class="col-md-6 form-group mt-3 mt-md-0">
-            <input type="text" class="form-control" name="place" id="place" placeholder="Your Place"  onkeyup="return validateplace()">
+            <input type="text" class="form-control" name="place" id="place" placeholder="Your Place"  onkeyup="return validateplace()"  onkeydown="return (/[a-z+\s]/i.test(event.key))">
             <p class="validate" id="place-Error"></p>
           </div>
         </div>
@@ -754,13 +764,16 @@
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <script>
+  
+
+
   function validatesubject(){
   var subject=document.getElementById("subject").value
   var subjectError=document.getElementById("subject-Error")
   
 if(subject==null || subject==""){
   validate.subject=false;
-  subjectError.innerHTML="*Field cannot be Empty*";
+  subjectError.innerHTML="*FIELD CANNOT BE EMPTY*";
 }else{
   subjectError.innerHTML="";
   validate.subject=true;
@@ -773,7 +786,7 @@ function validatemessage(){
   
 if(message==null || message==""){
   validate.message=false;
-  messageError.innerHTML="*Field cannot be Empty*";
+  messageError.innerHTML="*FIELD CANNOT BE EMPTY*";
 }else{
   messageError.innerHTML="";
   validate.message=true;
@@ -787,12 +800,12 @@ function validatemobile(){
 
 if(mobile==null || mobile==""){
   validate.mobile=false;
-  mobileError.innerHTML="*Field cannot be Empty*";
+  mobileError.innerHTML="*FIELD CANNOT BE EMPTY*";
 }else if(mobile.match(elementmobile)){
   mobileError.innerHTML="";
   validate.mobile=true;
 }else{
-  mobileError.innerHTML="*Enter correct mobile number only*";
+  mobileError.innerHTML="*ENTER CORRECT MOBILE NUMBER*";
   validate.mobile=false;
 }
 }
@@ -804,12 +817,12 @@ function validateplace(){
 
 if(place==null || place==""){
   validate.place=false;
-  placeError.innerHTML="*Field cannot be Empty*";
+  placeError.innerHTML="*FIELD CANNOT BE EMPTY*";
 }else if(place.match(elementAlpa)){
   placeError.innerHTML="";
   validate.place=true;
 }else{
-  placeError.innerHTML="*Enter alphabet only*";
+  placeError.innerHTML="*ENTER CORRECT PLACE*";
   validate.place=false;
 }
 }
@@ -829,26 +842,25 @@ if(place==null || place==""){
         method: "post",
         success: function (response) {
          // alert("Form submitted successfully");
-         swal("Good job!", "Your form is submitted!", "success", {
-  button: "Go Back!",
-});
+        
         document.getElementById("clientform").reset();
          
 
           //window.location.href="https://google.com"
         },
         error: function (err) {
-          swal("Fail!", "Something Error!", "fail", {
-  button: "Aww NO!",
-});
+        
         },
       });
     }
     else{
       //  alert("please fill the form")
-      swal( "Please fill Form!", "Fail", {
-  button: "Aww No!",
-});
+      validatename();
+      validateemail();
+      validatemobile();
+      validateplace();
+      validatesubject();
+      validatemessage()
     }
     });
     </script>
