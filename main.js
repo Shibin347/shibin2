@@ -255,23 +255,7 @@ const validate={
    place:false
 }
 
-function validatename(){
-  var name=document.getElementById("name").value
-  var nameError=document.getElementById("name-Error")
-  var elementAlp=/^[a-zA-Z]+(\s+[-a-zA-Z-()]+)*$/
 
-if(name==null || name.length <1){
-  validate.name=false;
-  nameError.innerHTML="*FIELD CANNOT BE EMPTY*";
-}else if(name.match(elementAlp)){
-  nameError.innerHTML="";
-  validate.name=true;
-}else{
-  nameError.innerHTML="*ENTER ALPHABET ONLY*";
-  validate.name=false;
-}
-
-}
 
 function validateemail(){
   var email=document.getElementById("email").value

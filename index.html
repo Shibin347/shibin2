@@ -342,8 +342,8 @@
       </div>
 
       <div class="row">
-        <div class="col-lg-6">
-          <div class="col-lg-6">
+        <div class="col-lg-12">
+          <div class="col-lg-12">
             <h3 class="resume-title">Summary</h3>
             <div class="resume-item pb-0">
               <h4>Shibin Babu</h4>
@@ -713,7 +713,7 @@
       <form action="" method="post" role="form" id="clientform" class="php-email-form mt-4">
         <div class="row">
           <div class="col-md-6 form-group">
-            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"  onkeyup="return validatename()" onkeydown="return (/[a-z+\s]/i.test(event.key))">
+            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"  onkeyup="return validatename()" onkeydown="return (/[A-z\s]/i.test(event.key))">
             <p class="validate" id="name-Error"></p>
           </div>
           <div class="col-md-6 form-group mt-3 mt-md-0">
@@ -721,7 +721,7 @@
             <p class="validate" id="email-Error"></p>
           </div>
           <div class="col-md-6 form-group">
-            <input type="tel" name="mobile" class="form-control" id="mobile" placeholder="Mobile Number"  onkeyup="return validatemobile()" oninput="this.value = this.value.replace(/\D/g,'')"/>
+            <input type="tel" name="mobile" class="form-control" id="mobile" placeholder="Mobile Number" maxlength="10" onkeyup="return validatemobile()" oninput="this.value = this.value.replace(/\D/g,'')"/>
             <p class="validate" id="mobile-Error"></p>
           </div>
           <div class="col-md-6 form-group mt-3 mt-md-0">
@@ -824,6 +824,41 @@ if(place==null || place==""){
 }else{
   placeError.innerHTML="*ENTER CORRECT PLACE*";
   validate.place=false;
+}
+}
+
+function validatename(){
+  var name=document.getElementById("name").value
+  var nameError=document.getElementById("name-Error")
+  var elementAlp=/^[a-zA-Z]+(\s+[-a-zA-Z-()]+)*$/
+
+if(name==null || name.length <1){
+  validate.name=false;
+  nameError.innerHTML="FIELD CANNOT BE EMPTY";
+}else if(name.match(elementAlp)){
+  nameError.innerHTML="";
+  validate.name=true;
+}else{
+  nameError.innerHTML="*LAST FIELD CANNOT BE SPACE*";
+  validate.name=false;
+}
+
+}
+
+function validateemail(){
+  var email=document.getElementById("email").value
+  var emailError=document.getElementById("email-Error")
+  var elementemail=/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+if(email==null || email==""){
+  validate.email=false;
+  emailError.innerHTML="*FIELD CANNOT BE EMPTY*";
+}else if(email.match(elementemail)){
+  emailError.innerHTML="";
+  validate.email=true;
+}else{
+  emailError.innerHTML="*ENTER CORRECT EMAIL*";
+  validate.email=false;
 }
 }
 
