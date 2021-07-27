@@ -713,7 +713,7 @@
       <form action="" method="post" role="form" id="clientform" class="php-email-form mt-4">
         <div class="row">
           <div class="col-md-6 form-group">
-            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"  onkeyup="return validatename()" onkeydown="return (/[A-z\s]/i.test(event.key))">
+            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"  onkeyup="return validatename()" oninput="this.value=this.value.replace(/[^A-Za-z-,.;'&/.() ]|^ /g,'')">
             <p class="validate" id="name-Error"></p>
           </div>
           <div class="col-md-6 form-group mt-3 mt-md-0">
@@ -830,7 +830,7 @@ if(place==null || place==""){
 function validatename(){
   var name=document.getElementById("name").value
   var nameError=document.getElementById("name-Error")
-  var elementAlp=/^[a-zA-Z]+(\s+[-a-zA-Z-()]+)*$/
+  var elementAlp= /^[a-zA-Z][a-zA-Z\\s]+$/;
 
 if(name==null || name.length <1){
   validate.name=false;
@@ -838,9 +838,6 @@ if(name==null || name.length <1){
 }else if(name.match(elementAlp)){
   nameError.innerHTML="";
   validate.name=true;
-}else{
-  nameError.innerHTML="*LAST FIELD CANNOT BE SPACE*";
-  validate.name=false;
 }
 
 }
