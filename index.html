@@ -845,7 +845,7 @@ if(name==null || name.length <1){
 function validateemail(){
   var email=document.getElementById("email").value
   var emailError=document.getElementById("email-Error")
-  var elementemail=/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+  var elementemail=/^\s*(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))\s*$/;
 
 if(email==null || email==""){
   validate.email=false;
